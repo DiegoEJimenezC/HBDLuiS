@@ -50,13 +50,17 @@ iframe.visible, img.visible {
 }
 
 section:nth-of-type(2) iframe {
-    max-width: 1900px;
-    height: 566px;
+    max-width: 900px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
 }
 
 section:nth-of-type(4) iframe {
-    max-width: 1900px;
-    height: 562px;
+    max-width: 900px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
 }
 
 img {
@@ -111,8 +115,26 @@ h1 span:first-of-type {
 .video {
     width: 80%; 
     max-width: 1000px;
-    height: 562px; 
+    height: auto; 
     margin-top: 20px;
+    aspect-ratio: 16 / 9;
+}
+
+video {
+    max-width: 750px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease-out;
+}
+
+video.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 button {
@@ -151,9 +173,10 @@ body {
         </h3>
     </section>    
     <section>
-        <div>
-        <iframe width="2900" height="815" src="https://www.youtube.com/embed/b34PMjZNIvY?si=k-BxB4szgG1E_SOJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+       <video width="750" controls autoplay loop muted style="max-width: 100%; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);">
+            <source src="HM.mov" type="video/quicktime">
+            Tu navegador no soporta la reproducción de video.
+        </video>
     </section>
     <section id="gif-section">
         <img src="NN-MaLo.gif" alt="GIF animado" id="animated-gif">
@@ -164,7 +187,10 @@ body {
         <span>Espero que este año esté lleno de éxitos y alegrías para ti 🎉</span>
         </h1>
     </div>
-        <iframe width="2000" height="815" src="https://www.youtube.com/embed/0kXYg8c9bCI?si=1Y2Yk2b0bX1o1Y6K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
+        <video width="750" controls autoplay loop muted style="max-width: 100%; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);">
+            <source src="luis.mov" type="video/quicktime">
+            Tu navegador no soporta la reproducción de video.
+        </video>
     </section>        
     <section>
         <span>Que tililili el CUMpleañeroo!! 🧑🏻‍💻🤪</span>
@@ -181,7 +207,7 @@ body {
 </audio>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll('h1, h3, img, iframe');
+    const elementsToAnimate = document.querySelectorAll('h1, h3, img, iframe, video');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
